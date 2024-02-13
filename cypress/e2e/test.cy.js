@@ -1,3 +1,4 @@
+
 describe('SociionLoginPage', () => {
     beforeEach(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
@@ -17,7 +18,7 @@ describe('SociionLoginPage', () => {
         cy.get('.user-update-form [name="last_name"]').should('be.visible').type('Awais');
 
         // Type email
-        cy.get('.user-update-form [name="email"]').should('be.visible').type('awaisalvi123@fmail.com');
+        cy.get('.user-update-form [name="email"]').should('be.visible').type('awaisalvi12e3@fmail.com');
 
         // Type password
         cy.get('.user-update-form [name="password"]').should('be.visible').type('awaisalvi123@fmail.com');
@@ -39,5 +40,24 @@ describe('SociionLoginPage', () => {
 
         // Click on submit button
         cy.get('.user-update-form .btn-submit').click();
+
+    
     });
+    it.only('Crate post',()=> {
+        cy.viewport(1200, 800)
+        cy.visit('https://www.socioon.com/');
+        //jonnybilal1@outlook.com
+        cy.get('.form-group [name="identity"]').type('jonnybilal1@outlook.com')
+        cy.get('.form-group [name="password"]').type('12345678')
+        cy.get('.form-group [type="submit"] ').click()
+        cy.wait(3000)
+        //cy.get('.make-post-new >[name="postInsert"]').scrollIntoView()
+        //cy.wait(1000)
+        
+// Then click on it
+        cy.get('.create-post-tabs > #m_st_togler').click({ force: true }) 
+        cy.get('#m_pst_txt').type('hello')
+
+    })
+    
 });
